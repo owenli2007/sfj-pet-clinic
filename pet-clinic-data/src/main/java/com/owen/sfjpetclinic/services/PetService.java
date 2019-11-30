@@ -4,12 +4,7 @@ import java.util.Set;
 
 import com.owen.sfjpetclinic.model.Pet;
 
-public interface PetService {
+public interface PetService extends CrudService<Pet, Long> {
 
-	public Set<Pet> findAll();
-	
-	public Pet findById(Long id);
-	
-	public Pet save(Pet pet);
 	
 }
