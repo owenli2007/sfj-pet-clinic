@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::body}, 'owners')}">
 <head>
 <meta charset="UTF-8">
 <title>Owners Index</title>
 </head>
 <body>
 	<!--/*@thymesVar id="owner" type="com.owen.sfjpetclinic.model.Owner" */-->
-	<h1 th:text="'Owners Index'">Index Page...</h1>
-	<h2 th:text="${student}">hello</h2>
-	<table>
+	<h2 th:text="'Owners Index'">Index Page...</h2>
+	<table id="vets" class="table table-striped">
 		<thead>
 			<th>Id</th>
 			<th>First Name</th>
