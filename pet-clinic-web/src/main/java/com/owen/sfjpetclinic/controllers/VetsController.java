@@ -26,7 +26,7 @@ public class VetsController {
 
 
 
-	@RequestMapping({ "/vets", "/vets/", "/vets/index", "/vets/index.html"})
+	@RequestMapping({ "/vets", "/vets/", "/vets/index", "/vets/index.html", "/vets.html"})
 	public String index(Model model) {
 		Set<Vet> result = vetService.findAll();
 		System.out.println("Number of vets: " + result.size());
