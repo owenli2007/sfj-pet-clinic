@@ -23,7 +23,6 @@ public class OwnerJPAService implements OwnerService {
 	
 	public OwnerJPAService(OwnerRepository ownerRepository, PetRepository petRepository,
 			PetTypeRepository petTypeRepository) {
-		super();
 		this.ownerRepository = ownerRepository;
 		this.petRepository = petRepository;
 		this.petTypeRepository = petTypeRepository;
