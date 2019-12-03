@@ -10,10 +10,12 @@ import com.owen.sfjpetclinic.model.Pet;
 import com.owen.sfjpetclinic.model.PetType;
 import com.owen.sfjpetclinic.model.Specialty;
 import com.owen.sfjpetclinic.model.Vet;
+import com.owen.sfjpetclinic.model.Visit;
 import com.owen.sfjpetclinic.services.OwnerService;
 import com.owen.sfjpetclinic.services.PetTypeService;
 import com.owen.sfjpetclinic.services.SpecialtyService;
 import com.owen.sfjpetclinic.services.VetService;
+import com.owen.sfjpetclinic.services.VisitService;
 import com.owen.sfjpetclinic.services.map.OwnerMapService;
 import com.owen.sfjpetclinic.services.map.VetMapService;
 
@@ -24,15 +26,16 @@ public class DataLoader implements CommandLineRunner {
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialtyService specialtyService;
-	
+	private final VisitService visitService;
 	
 	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, 
-			SpecialtyService specialtyService) {
+			SpecialtyService specialtyService, VisitService visitService) {
 
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialtyService = specialtyService;
+		this.visitService = visitService;
 	}
 
 
@@ -121,6 +124,20 @@ public class DataLoader implements CommandLineRunner {
 		vetService.save(vet2);
 		
 		System.out.println("Loaded Vets...");
+		
+		Visit visit1 = new Visit();
+		visit1.setPet(mikesPet);
+		visit1.setDate(LocalDate.now());
+		visit1.setDescription("Tiger");
+		visitService.save(visit1);
+		
+		Visit visit2 = new Visit();
+		visit2.setPet(fionaPet);
+		visit2.setDate(LocalDate.now());
+		visit2.setDescription("Sneezy Kitty");
+		visitService.save(visit2);
+		
+		System.out.println("Loaded Visits...");
 	}
 
 }
